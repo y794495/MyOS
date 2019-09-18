@@ -1,0 +1,82 @@
+﻿  
+  ================ Build BootLoader ==================
+  
+  make -C 0.BootLoader
+  make[1]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/0.BootLoader'
+  nasm -f bin -o BootLoader.bin Source/BootLoader.asm
+  make[1]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/0.BootLoader'
+  
+  ================= Build Complete ===================
+  
+  
+  =============== Build 32bit Kernel =================
+  
+  make -C 1.Kernel32
+  make[1]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/1.Kernel32'
+  mkdir -p Temp
+  ========== Make Dependency File =============
+  make -C Temp -f ../makefile InternalDependency
+  make[2]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/1.Kernel32/Temp'
+  ===============InternalDependency===================
+  gcc -c -m32 -ffreestanding -g -MM ../Source/PageStruct.c ../Source/Main.c > Dependency.dep
+  make[2]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/1.Kernel32/Temp'
+  ========== Dependency Search Compile=========
+  ===========ExecuteInternalBuild==============
+  make -C Temp -f ../makefile Kernel32.exe
+  make[2]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/1.Kernel32/Temp'
+  make[2]: 'Kernel32.exe' is up to date.
+  make[2]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/1.Kernel32/Temp'
+  =============Kernel32.exe.bin================
+  objcopy -j .text -j .data -j .rdata -j .bss -S -O binary Temp/Kernel32.exe Temp/Kernel32.exe.bin
+  ==============Kernel32=======================
+  cat Temp/EntryPoint.bin Temp/Kernel32.exe.bin > Kernel32.bin
+  make[1]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/1.Kernel32'
+  
+  ================ Build Complete ====================
+  
+  
+  =============== Build 64bit Kernel =================
+  
+  make -C 2.Kernel64
+  make[1]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/2.Kernel64'
+  =================
+  mkdir -p Temp;
+  === Make Dependency File ==========
+  make -C Temp -f ../makefile InternalDependency
+  make[2]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/2.Kernel64/Temp'
+  gcc -m64 -c -ffreestanding -MM ../Source/Task.c ../Source/RTC.c ../Source/Keyboard.c ../Source/PIC.c ../Source/Utility.c ../Source/Console.c ../Source/Descriptor.c ../Source/InterruptHandler.c ../Source/List.c ../Source/Queue.c ../Source/PIT.c ../Source/ConsoleShell.c ../Source/Main.c>Dependency.dep
+  make[2]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/2.Kernel64/Temp'
+  === Dependency Search Complete ====
+  make -C Temp -f ../makefile Kernel64.exe
+  make[2]: Entering directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/2.Kernel64/Temp'
+  gcc -m64 -c -ffreestanding -c ../Source/ConsoleShell.c
+  ==============entry============================
+  ld -T ../i386pep.x -nostdlib -e Main -Ttext 0x200000 -o Kernel64.exe EntryPoint.o Task.o RTC.o Keyboard.o PIC.o Utility.o Console.o Descriptor.o InterruptHandler.o List.o Queue.o PIT.o ConsoleShell.o Main.o AssemblyUtility.o ISR.o
+  make[2]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/2.Kernel64/Temp'
+  objcopy -j .text -j .data -j .rdata -j .bss -S -O binary Temp/Kernel64.exe Kernel64.bin
+  make[1]: Leaving directory '/cygdrive/c/Users/?댁쥌誘?Desktop/MYOS/MyOS/MyOS/Source/2.Kernel64'
+  
+  =================Build Complete =====================
+  
+  
+  ============== Disk Image Build Start ==============
+  
+  ./Utility/ImageMaker.exe 0.BootLoader/BootLoader.bin 1.Kernel32/Kernel32.bin 2.Kernel64/Kernel64.bin
+  [INFO] Copy boot loader to image file
+  [Info] File size is aligned 512 byte
+  [Info] 0.BootLoader/BootLoader.bin size = [512] and sector count = [1]
+  [Info] Copy protected mode kernel to image file
+  [Info] File size [2712] and fill [360] byte
+  [Info] 1.Kernel32/Kernel32.bin size = [2712] and sector count = [6]
+  [Info] Copy IA-32e mode Kernel to image file
+  [Info] File size [24608] and fill [480] byte
+  [Info] 2.Kernel64/Kernel64.bin size = [24608] and sector count = [49]
+  [Info] Start to write Kernel Information
+  [Info] Total sector count except boot loader [55]
+  [Info] Total sector count of protected mode Kernel [6]
+  [Info] Image file create complete
+  
+  ================ All Build Complete ================
+  
+  계속하려면 아무 키나 누르십시오 . . . 
+EXEC : I/O warning : failed to load external entity "file:/C:/ProgramData/VMware/hostd/proxy.xml"

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MyOS",
+    "\\MyOS\\Source",
+    "\\MyOS\\Source\\0.BootLoader",
+    "\\MyOS\\Source\\0.BootLoader\\Source",
+    "\\MyOS\\Source\\0.BootLoader\\Temp",
+    "\\MyOS\\Source\\1.Kernel32",
+    "\\MyOS\\Source\\1.Kernel32\\Source",
+    "\\MyOS\\Source\\2.Kernel64",
+    "\\MyOS\\Source\\2.Kernel64\\Source"
+  ],
+  "SelectedNode": "\\MyOS\\Source\\2.Kernel64\\Source\\Task.c",
+  "PreviewInSolutionExplorer": false
+}

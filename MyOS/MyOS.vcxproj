@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{8BF8E90A-9AE7-46BD-8C4E-A381DECE61E2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>MakeMyOS.bat</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>MakeMyOSRemove.bat</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>MakeMyOSRebuild.bat</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeBuildCommandLine>makeOS.bat</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>makeOSRebuild.bat</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>makeOS.bat</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>makeOS.bat</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>makeOSRebuild.bat</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>makeOS.bat</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NMakeBuildCommandLine>makeOS.bat</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>makeOSRebuild.bat</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>makeOS.bat</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\BootLoader.asm" />
+    <None Include="MakeMyOS.bat" />
+    <None Include="MakeMyOSRebuild.bat" />
+    <None Include="MakeMyOSRemove.bat" />
+    <None Include="Source\0.BootLoader\makefile" />
+    <None Include="Source\1.Kernel32\makefile" />
+    <None Include="Source\1.Kernel32\Source\EntryPoint.s" />
+    <None Include="Source\1.Kernel32\Source\ReadCPUID.asm" />
+    <None Include="Source\2.Kernel64\makefile" />
+    <None Include="Source\2.Kernel64\Source\AssemblyUtility.asm" />
+    <None Include="Source\2.Kernel64\Source\EntryPoint.s" />
+    <None Include="Source\2.Kernel64\Source\ISR.asm" />
+    <None Include="Source\makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\1.Kernel32\Source\PageStruct.h" />
+    <ClInclude Include="Source\1.Kernel32\Source\Types.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\AssemblyUtility.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Console.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\ConsoleShell.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Descriptor.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\InterruptHandler.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\ISR.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Keyboard.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\List.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\PIC.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Queue.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Task.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Types.h" />
+    <ClInclude Include="Source\2.Kernel64\Source\Utility.h" />
+    <ClInclude Include="Source\Header\Types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\1.Kernel32\Source\Main.c" />
+    <ClCompile Include="Source\1.Kernel32\Source\PageStruct.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Console.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\ConsoleShell.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Descriptor.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\InterruptHandler.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Keyboard.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\List.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Main.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\PIC.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Queue.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Task.c" />
+    <ClCompile Include="Source\2.Kernel64\Source\Utility.c" />
+    <ClCompile Include="Source\Utility\ImageMaker.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,4 @@
+PageStruct.o: ../Source/PageStruct.c ../Source/PageStruct.h \
+ ../Source/Types.h
+Main.o: ../Source/Main.c ../Source/Types.h ../Source/PageStruct.h \
+ ../Source/Switch64.h

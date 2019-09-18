@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-makefile",
+      "appliesTo": "MyOS/Source/Kernel32/makefile",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-AssemblyUtility",
+      "appliesTo": "MyOS/Source/2.Kernel64/Source/AssemblyUtility.h",
+      "type": "launch"
+    }
+  ]
+}
